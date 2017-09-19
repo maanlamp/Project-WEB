@@ -2,10 +2,6 @@ h3 {
 	font-size: 2.375rem;
 }
 
-aside {
-	background-color: var(--ns-yellow);
-}
-
 main {
 	background-color: rgb(249, 249, 249);
 }
@@ -39,11 +35,10 @@ h2+span {
 header>ul li:not(:first-of-type),
 aside>ul li:not(:first-of-type) {
 	display: inline-block;
-	box-shadow: 0 -0.125rem 0 rgba(7,7,33,.1) inset;
+	box-shadow: 0 -0.125rem 0 rgba(7, 7, 33, .1) inset;
 	padding: 1rem 2rem 1rem 0;
 	background: url("../Images/icon_arrowDown.png") no-repeat right .7rem bottom 1.6rem;
 	background-size: .6rem;
-	animation: popIn 1s forwards;
 }
 
 header>ul li:not(:first-of-type):hover,

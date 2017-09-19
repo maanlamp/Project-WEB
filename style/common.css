@@ -60,23 +60,12 @@ ul {
 	list-style: none;
 }
 
-@keyframes popIn {
-	from: {
-		transform: scale(0);
-		background: red;
-	}
-	to: {
-		transform: scale(1);
-		background: blue;
-	}
-}
-
 header {
 	background-color: white;
 	color: var(--ns-blue);
 }
 
-header > a > img {
+header>a>img {
 	width: 2rem;
 	margin: 1rem;
 }
@@ -88,4 +77,22 @@ header nav li * {
 header nav img {
 	width: 2rem;
 	height: 2rem;
+}
+
+@keyframes popIn {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	60% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.popIn {
+	animation: popIn .3s ease-out forwards;
 }
