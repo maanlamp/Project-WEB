@@ -1,0 +1,21 @@
+body {
+	overflow: hidden;
+	width: 100vw;
+	height: 100vh;
+}
+
+fieldset {
+	border: none;
+}
+
+legend {
+	font-size: 2rem;
+}
+
+label {
+	display: block;
+}
+
+label+label {
+	margin-top: .25rem;
+}
