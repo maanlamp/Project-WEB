@@ -1,7 +1,3 @@
-function removeClasses() {
-	this.removeAttribute("class");
-};
-
 function deleteFilter() {
 	(this.nodeName == "LI") ? this.remove(): this.parentElement.remove();
 };
@@ -33,6 +29,11 @@ document.querySelector("aside>button").addEventListener("click", function () {
 	let ul = this.parentElement.children[0];
 	ul.appendChild(li);
 	li.className = "popIn";
+
+	function removeClasses() {
+		this.removeAttribute("class");
+	};
+
 	li.addEventListener("animationend", removeClasses);
 	li.children[0].addEventListener("click", deleteFilter);
 });
