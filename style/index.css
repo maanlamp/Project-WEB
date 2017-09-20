@@ -53,6 +53,11 @@ aside>ul li:not(:first-of-type) * {
 	vertical-align: middle;
 }
 
+header>ul li:not(:first-of-type) span,
+aside>ul li:not(:first-of-type) span {
+	margin-top: .3rem;
+}
+
 header>ul li:not(:first-of-type) img,
 aside>ul li:not(:first-of-type) img {
 	width: 1.5rem;
