@@ -6,7 +6,8 @@ document.querySelectorAll("aside li>button, header li>button").forEach((button) 
 	button.addEventListener("click", deleteFilter);
 });
 
-document.querySelector("aside>button").addEventListener("click", function () {
+document.querySelector("aside>form>button").addEventListener("click", function () {
+	event.preventDefault();
 	let node = [
 		document.createElement("li"),
 		document.createElement("button"),
@@ -28,12 +29,12 @@ document.querySelector("aside>button").addEventListener("click", function () {
 
 	let ul = this.parentElement.children[0];
 	ul.appendChild(li);
-	li.className = "popIn";
+	li.style = "animation: popIn .3s ease-out forwards;";
 
-	function removeClasses() {
-		this.removeAttribute("class");
+	function removeStyle() {
+		this.removeAttribute("style");
 	};
 
-	li.addEventListener("animationend", removeClasses);
+	li.addEventListener("animationend", removeStyle);
 	li.children[0].addEventListener("click", deleteFilter);
 });

@@ -32,8 +32,8 @@ h2+span {
 	margin-left: .5rem;
 }
 
-header>ul li:not(:first-of-type),
-aside>ul li:not(:first-of-type) {
+header ul li:not(:first-of-type),
+aside ul li:not(:first-of-type) {
 	display: inline-block;
 	box-shadow: 0 -0.125rem 0 rgba(7, 7, 33, .1) inset;
 	padding: 1rem 2rem 1rem 0;
@@ -41,25 +41,25 @@ aside>ul li:not(:first-of-type) {
 	background-size: .6rem;
 }
 
-header>ul li:not(:first-of-type):hover,
-aside>ul li:not(:first-of-type):hover {
+header ul li:not(:first-of-type):hover,
+aside ul li:not(:first-of-type):hover {
 	cursor: pointer;
 	box-shadow: 0 -0.125rem 0 var(--ns-blue) inset;
 }
 
-header>ul li:not(:first-of-type) *,
-aside>ul li:not(:first-of-type) * {
+header ul li:not(:first-of-type) *,
+aside ul li:not(:first-of-type) * {
 	display: inline-block;
 	vertical-align: middle;
 }
 
-header>ul li:not(:first-of-type) span,
-aside>ul li:not(:first-of-type) span {
+header ul li:not(:first-of-type) span,
+aside ul li:not(:first-of-type) span {
 	margin-top: .3rem;
 }
 
-header>ul li:not(:first-of-type) img,
-aside>ul li:not(:first-of-type) img {
+header ul li:not(:first-of-type) img,
+aside ul li:not(:first-of-type) img {
 	width: 1.5rem;
 	height: 1.5rem;
 }

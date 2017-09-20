@@ -93,7 +93,3 @@ header nav img {
 		opacity: 1;
 	}
 }
-
-.popIn {
-	animation: popIn .3s ease-out forwards;
-}
