@@ -1,12 +1,11 @@
 body {
 	display: grid;
-	grid-template-columns: 1fr 50vw 1fr;
 	grid-template-rows: 8.3vh auto;
 }
 
 header {
-	grid-column: 1 / 4;
-	grid-row: 1 / 2;
+	position: fixed;
+	width: 100vw;
 }
 
 header * {
@@ -14,16 +13,10 @@ header * {
 	vertical-align: middle;
 }
 
-aside {
-	grid-column: 1;
-	grid-row: 2 / end;
-	background: var(--ns-yellow);
-}
-
 main {
-	grid-column: 2 / end;
 	display: flex;
 	flex-wrap: wrap;
+	grid-row: 2 / 3;
 }
 
 main article {
@@ -112,4 +105,27 @@ form li>button:hover {
 	box-shadow: inset 0 -2.1rem 0 var(--ns-blue);
 	color: white;
 	transform: rotate(360deg);
+}
+
+@media (max-width: 30rem) {
+	header h1,
+	header form ul {
+		display: none;
+	}
+	
+	aside button {
+		background: url("../Images/icon_filter.png") no-repeat center center;
+		background-size: 3rem;
+	}
+	
+	header>form>button {
+		background: url("../Images/icon_sort.png") no-repeat center center;
+		background-size: 3rem;
+	}
+	
+	header button {
+		width: 3rem;
+		color: transparent;
+		box-shadow: none;
+	}
 }
