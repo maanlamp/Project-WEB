@@ -1,10 +1,12 @@
-/*jslint es6 browser devel white this for*/
+/*jshint esversion:6, browser: true, devel: true*/
 const Main = {
 	articles: document.querySelectorAll("main article"),
 	deleteFilter: function () {
-		(this.nodeName === "LI")
-			?	this.remove()
-			: this.parentElement.remove();
+		if (this.nodeName === "LI") {
+			this.remove();
+		} else {
+			this.parentElement.remove();
+		}
 	}
 };
 
@@ -47,7 +49,7 @@ document.querySelector("aside>form>button").addEventListener("click", function (
 
 	const removeStyle = function () {
 		this.removeAttribute("style");
-	}
+	};
 
 	li.addEventListener("animationend", removeStyle);
 	li.children[0].addEventListener("click", Main.deleteFilter);
@@ -56,7 +58,7 @@ document.querySelector("aside>form>button").addEventListener("click", function (
 const articleArray = document.querySelectorAll("article");
 articleArray.forEach((article) => {
 	const p = article.querySelector("p"),
-				maxLength = 75;
+		maxLength = 75;
 	article.setAttribute("data-filter", `len:${p.textContent.length}`);
 	if (p.textContent.length < maxLength) {
 		return;
@@ -70,8 +72,8 @@ const sort = () => {
 	const main = document.querySelector("main");
 	console.log(articleArray);
 	articleArray.forEach((article) => {
-		if (a) {
-				
+		if ("expression") {
+			//Do sumfin
 		}
 		main.insertBefore(article, main.children[1]);
 	});
