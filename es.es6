@@ -1,4 +1,16 @@
 /*jshint esversion:6, browser: true, devel: true*/
+const debug = {
+	listArticles: () => {
+		articles.forEach((article) => {
+			console.groupCollapsed(article);
+			console.log("Reading time:", article.readingTime);
+			console.log("Times read:", article.timesRead);
+			console.log("Times saved:", article.timesSaved);
+			console.groupEnd();
+		});
+	}
+};
+
 function deleteFilter(){
 	if (this.nodeName === "LI") {
 		this.remove();
@@ -44,15 +56,25 @@ document.querySelector("aside>form>button").addEventListener("click", function (
 	li.children[0].addEventListener("click", deleteFilter);
 });
 
-const articleArray = document.querySelectorAll("article");
-articleArray.forEach((article) => {
-	const p = article.querySelector("p"),
-		maxLength = 75;
-	article.setAttribute("data-filter", `len:${p.textContent.length}`);
-	if (p.textContent.length < maxLength) {
+function trimSnippet(snippet, maxLength) {
+	if (snippet.length < maxLength) {
 		return;
 	} else {
-		const text = p.textContent.slice(0, maxLength) + "...";
-		p.innerHTML = text;
+		const text = snippet.paragraph.textContent.slice(0, maxLength) + "&hellip;";
+		snippet.paragraph.innerHTML = text;
 	}
+}
+
+const articles = document.querySelectorAll("main article");
+articles.forEach((article) => {
+	article.paragraph = article.querySelector("p");
+	article.length = article.paragraph.textContent.length;
+	article.words = article.paragraph.textContent.split(" ").length;
+	article.readingTime = article.words / 250; //gemiddeld 250 woorden per minuut
+	article.timesSaved = Math.floor(Math.random() * 1000);
+	article.timesRead = Math.floor(Math.random() * 1000);
+	article.dataset.timesSaved = article.timesSaved;
+	article.dataset.timesRead = article.timesRead;
+	article.dataset.readingTime = article.readingTime;
+	trimSnippet(article, 150);
 });
