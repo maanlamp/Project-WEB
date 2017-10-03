@@ -1,7 +1,68 @@
 /*jshint esversion:6, browser: true, devel: true*/
-const debug = {
+
+function deleteFilter() {
+	if (this.nodeName === "LI") {
+		this.remove();
+	} else {
+		this.parentElement.remove();
+	}
+}
+
+function removeStyle() {
+	this.removeAttribute("style");
+}
+
+const Main = {
+	trimSnippet: (snippet, maxLength) => {
+		if (snippet.length < maxLength) {
+			return;
+		} else {
+			const text = `${snippet.paragraph.textContent.slice(0, maxLength)}&hellip;`;
+			snippet.paragraph.innerHTML = text;
+		}
+	},
+	
+	articles: document.querySelectorAll("main article"),
+	
+	sort: (by, highestFirst) => {
+		let temp = Array.prototype.slice.call(Main.articles);
+		temp.sort((a, b) => {
+			if (highestFirst) {
+				return (a[by] < b[by]) ? 1 : -1;
+			} else {
+				return (a[by] > b[by]) ? 1 : -1;
+			}
+		});
+		for (let i = 0; i < temp.length; i++) {
+			temp[i].style.order = i;
+			Main.popIn(temp[i], i);
+		}
+	},
+	
+	filter: (by, min, max) => {
+		for (let i = 0; i < Main.articles.length; i++) {
+			let article = Main.articles[i];
+			Main.popOut(article, i);
+			if (article.dataset[by] >= min && article.dataset[by] <= max) {
+				Main.popIn(article, i);
+			}
+		}
+	},
+	
+	popOut: (thing, delay) => {
+		delay /= 50;
+		thing.style = `animation: popOut .3s ease-out ${delay}s forwards;`;
+	},
+	
+	popIn: (thing, delay) => {
+		delay /= 50;
+		thing.style = `animation: popIn .3s ease-out ${delay}s forwards;`;
+	}
+};
+
+const DEBUG = {
 	listArticles: () => {
-		articles.forEach((article) => {
+		this.articles.forEach((article) => {
 			console.groupCollapsed(article);
 			console.log("Reading time:", article.readingTime);
 			console.log("Times read:", article.timesRead);
@@ -11,13 +72,18 @@ const debug = {
 	}
 };
 
-function deleteFilter() {
-	if (this.nodeName === "LI") {
-		this.remove();
-	} else {
-		this.parentElement.remove();
-	}
-}
+Main.articles.forEach((article) => {
+	article.paragraph = article.querySelector("p");
+	article.length = article.paragraph.textContent.length;
+	article.words = article.paragraph.textContent.split(" ").length;
+	article.readingTime = article.words / 250; //gemiddeld 250 woorden per minuut
+	article.timesSaved = Math.floor(Math.random() * 1000);
+	article.timesRead = Math.floor(Math.random() * 1000);
+	article.dataset.timesSaved = article.timesSaved;
+	article.dataset.timesRead = article.timesRead;
+	article.dataset.readingTime = article.readingTime;
+	Main.trimSnippet(article, 100);
+});
 
 document.querySelectorAll("aside li>button, header li>button").forEach((button) => {
 	button.addEventListener("click", deleteFilter);
@@ -48,56 +114,8 @@ document.querySelector("aside>form>button").addEventListener("click", function (
 	ul.appendChild(li);
 	li.style = "animation: popIn .3s ease-out forwards;";
 
-	function removeStyle() {
-		this.removeAttribute("style");
-	}
-
 	li.addEventListener("animationend", removeStyle);
 	li.children[0].addEventListener("click", deleteFilter);
 });
 
-function trimSnippet(snippet, maxLength) {
-	if (snippet.length < maxLength) {
-		return;
-	} else {
-		const text = `${snippet.paragraph.textContent.slice(0, maxLength)}&hellip;`;
-		snippet.paragraph.innerHTML = text;
-	}
-}
-
-const articles = document.querySelectorAll("main article");
-articles.forEach((article) => {
-	article.paragraph = article.querySelector("p");
-	article.length = article.paragraph.textContent.length;
-	article.words = article.paragraph.textContent.split(" ").length;
-	article.readingTime = article.words / 250; //gemiddeld 250 woorden per minuut
-	article.timesSaved = Math.floor(Math.random() * 1000);
-	article.timesRead = Math.floor(Math.random() * 1000);
-	article.dataset.timesSaved = article.timesSaved;
-	article.dataset.timesRead = article.timesRead;
-	article.dataset.readingTime = article.readingTime;
-	trimSnippet(article, 100);
-});
-
-function sort(by, highestFirst) {
-	let temp = Array.prototype.slice.call(articles);
-	temp.sort((a, b) => {
-		if (highestFirst) {
-			return (a[by] < b[by]) ? 1 : -1;
-		} else {
-			return (a[by] > b[by]) ? 1 : -1;
-		}
-	});
-	for (let i = 0; i < temp.length; i++) {
-		temp[i].style.order = i;
-	}
-}
-
-function filter(by, min, max) {
-	articles.forEach((article) => {
-		console.log(article.dataset[by]);
-		if (article.dataset[by] < min || article.dataset[by] > max) {
-			article.style.display = "none";
-		}
-	});
-}
+Main.sort("timesRead", true);
