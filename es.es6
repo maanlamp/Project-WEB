@@ -11,7 +11,7 @@ const debug = {
 	}
 };
 
-function deleteFilter(){
+function deleteFilter() {
 	if (this.nodeName === "LI") {
 		this.remove();
 	} else {
@@ -78,3 +78,17 @@ articles.forEach((article) => {
 	article.dataset.readingTime = article.readingTime;
 	trimSnippet(article, 150);
 });
+
+function sort(sortBy, highestFirst) {
+	let temp = Array.prototype.slice.call(articles);
+	temp.sort((a, b) => {
+		if (highestFirst) {
+			return (a[sortBy] < b[sortBy]) ? 1 : -1;
+		} else {
+			return (a[sortBy] > b[sortBy]) ? 1 : -1;
+		}
+	});
+	for (let i = 0; i < temp.length; i++) {
+		temp[i].style.order = i;
+	}
+}
