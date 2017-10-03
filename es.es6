@@ -1,7 +1,11 @@
-/*jslint es6 browser devel white this for*/
-function deleteFilter() {
-	(this.nodeName == "LI") ? this.remove(): this.parentElement.remove();
-};
+/*jshint esversion:6, browser: true, devel: true*/
+function deleteFilter(){
+	if (this.nodeName === "LI") {
+		this.remove();
+	} else {
+		this.parentElement.remove();
+	}
+}
 
 document.querySelectorAll("aside li>button, header li>button").forEach((button) => {
 	button.addEventListener("click", deleteFilter);
@@ -34,8 +38,21 @@ document.querySelector("aside>form>button").addEventListener("click", function (
 
 	function removeStyle() {
 		this.removeAttribute("style");
-	};
+	}
 
 	li.addEventListener("animationend", removeStyle);
 	li.children[0].addEventListener("click", deleteFilter);
+});
+
+const articleArray = document.querySelectorAll("article");
+articleArray.forEach((article) => {
+	const p = article.querySelector("p"),
+		maxLength = 75;
+	article.setAttribute("data-filter", `len:${p.textContent.length}`);
+	if (p.textContent.length < maxLength) {
+		return;
+	} else {
+		const text = p.textContent.slice(0, maxLength) + "...";
+		p.innerHTML = text;
+	}
 });
