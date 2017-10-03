@@ -60,7 +60,7 @@ function trimSnippet(snippet, maxLength) {
 	if (snippet.length < maxLength) {
 		return;
 	} else {
-		const text = snippet.paragraph.textContent.slice(0, maxLength) + "&hellip;";
+		const text = `${snippet.paragraph.textContent.slice(0, maxLength)}&hellip;`;
 		snippet.paragraph.innerHTML = text;
 	}
 }
@@ -76,19 +76,28 @@ articles.forEach((article) => {
 	article.dataset.timesSaved = article.timesSaved;
 	article.dataset.timesRead = article.timesRead;
 	article.dataset.readingTime = article.readingTime;
-	trimSnippet(article, 150);
+	trimSnippet(article, 100);
 });
 
-function sort(sortBy, highestFirst) {
+function sort(by, highestFirst) {
 	let temp = Array.prototype.slice.call(articles);
 	temp.sort((a, b) => {
 		if (highestFirst) {
-			return (a[sortBy] < b[sortBy]) ? 1 : -1;
+			return (a[by] < b[by]) ? 1 : -1;
 		} else {
-			return (a[sortBy] > b[sortBy]) ? 1 : -1;
+			return (a[by] > b[by]) ? 1 : -1;
 		}
 	});
 	for (let i = 0; i < temp.length; i++) {
 		temp[i].style.order = i;
 	}
+}
+
+function filter(by, min, max) {
+	articles.forEach((article) => {
+		console.log(article.dataset[by]);
+		if (article.dataset[by] < min || article.dataset[by] > max) {
+			article.style.display = "none";
+		}
+	});
 }
