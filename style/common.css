@@ -3,6 +3,7 @@
 	--ns-yellow: rgba(255, 201, 23, 1);
 	--ns-blue: rgba(0, 48, 130, 1);
 	--ns-lightBlue: rgba(82, 100, 205, 1);
+	--ns-linkBlue: rgba(0, 121, 211, 1);
 }
 
 * {
@@ -16,6 +17,22 @@
 }
 
 button,
+input,
+header a {
+	transition: transform .1s ease-out;
+}
+
+button:active,
+input:active,
+header a:active {
+	transform: scale(.9);
+}
+
+h1 {
+	cursor: default;
+}
+
+button,
 input {
 	font-size: inherit;
 }
@@ -25,7 +42,6 @@ button {
 	border: none;
 	padding: .3rem;
 	cursor: pointer;
-	transition: box-shadow .15s ease-in-out;
 	background-color: rgba(0, 0, 0, .1);
 }
 
@@ -64,6 +80,7 @@ ul {
 header {
 	background-color: white;
 	color: var(--ns-blue);
+	z-index: 1;
 }
 
 header>a>img {
@@ -91,6 +108,7 @@ header nav img {
 	100% {
 		transform: scale(1);
 		opacity: 1;
+		visibility: visible;
 	}
 }
 

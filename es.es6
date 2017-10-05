@@ -33,9 +33,12 @@ const Main = {
 				return (a[by] > b[by]) ? 1 : -1;
 			}
 		});
+		let pos = 0;
 		for (let i = 0; i < temp.length; i++) {
-			temp[i].style.order = i;
-			Main.popIn(temp[i], i);
+			console.log(temp[i], temp[i].style.visibility);
+			if (temp[i].style.visibility === "hidden") {
+				temp[i].style.order = pos++;
+			}
 		}
 	},
 	
@@ -51,12 +54,12 @@ const Main = {
 	
 	popOut: (thing, delay) => {
 		delay /= 50;
-		thing.style = `animation: popOut .3s ease-out ${delay}s forwards;`;
+		thing.style = `padding: 0; animation: popOut .3s ease-out ${delay}s forwards;`;
 	},
 	
 	popIn: (thing, delay) => {
 		delay /= 50;
-		thing.style = `animation: popIn .3s ease-out ${delay}s forwards;`;
+		thing.style = `visibility: hidden; animation: popIn .3s ease-out ${delay}s forwards;`;
 	}
 };
 
@@ -82,7 +85,7 @@ Main.articles.forEach((article) => {
 	article.dataset.timesSaved = article.timesSaved;
 	article.dataset.timesRead = article.timesRead;
 	article.dataset.readingTime = article.readingTime;
-	Main.trimSnippet(article, 100);
+	Main.trimSnippet(article, 200);
 });
 
 document.querySelectorAll("aside li>button, header li>button").forEach((button) => {

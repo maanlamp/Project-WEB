@@ -2,6 +2,7 @@ body {
 	overflow: hidden;
 	width: 100vw;
 	height: 100vh;
+	padding: 2rem;
 }
 
 fieldset {
@@ -16,6 +17,7 @@ label {
 	display: block;
 }
 
-label+label {
+label+label,
+button {
 	margin-top: .25rem;
 }
