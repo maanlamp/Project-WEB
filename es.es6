@@ -35,7 +35,6 @@ const Main = {
 		});
 		let pos = 0;
 		for (let i = 0; i < temp.length; i++) {
-			console.log(temp[i], temp[i].style.visibility);
 			if (temp[i].style.visibility === "hidden") {
 				temp[i].style.order = pos++;
 			}

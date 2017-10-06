@@ -9,25 +9,23 @@
 </head>
 
 <body>
-	<form action="submit">
+	<header>
+		<a href="/">
+			<img src="Images/logo.png" alt="Logo">
+		</a>
+		<h1>Welkom bij de NS</h1>
+	</header>
+	<form action="/">
 		<fieldset>
 			<legend>Registreren</legend>
-			<label>
-				Gebruikersnaam:
-				<input type="text" id="username" required>
-			</label>
-			<label>
-				E-mail:
-				<input type="email" id="email" required>
-			</label>
-			<label>
-				Wachtwoord:
-				<input type="password" id="password" required>
-			</label>
-			<label>
-				Wachtwoord verifiëren:
-				<input type="password" id="passwordRepeat" required>
-			</label>
+			<label for="username">Gebruikersnaam:</label>
+			<input type="text" id="username" placeholder="Gebruikersnaam" required>
+			<label for="email">E-mailadres:</label>
+			<input type="email" id="email" placeholder="E-mailadres" required>
+			<label for="password">Wachtwoord:</label>
+			<input type="password" id="password" placeholder="Wachtwoord" required>
+			<label for="passwordRepeat">Wachtwoord verifiëren:</label>
+			<input type="password" id="passwordRepeat" placeholder="Wachtwoord verifiëren" required>
 		</fieldset>
 		<button>Aanmelden</button>
 	</form>

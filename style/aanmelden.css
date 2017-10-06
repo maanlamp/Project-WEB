@@ -1,23 +1,104 @@
 body {
-	overflow: hidden;
-	width: 100vw;
-	height: 100vh;
-	padding: 2rem;
+	padding: .5rem;
+	background-color: #e6e6e9;
+}
+
+header {
+	background: none;
+}
+
+header>a>img {
+	width: 5rem;
+	margin: 1rem;
+}
+
+header h1 {
+	background-color: white;
+	font-weight: 400;
+	padding: 1rem 0 0 1rem;
+}
+
+form {
+	background-color: white;
+	padding: 1rem;
+	box-shadow: 0 0.125rem 0 0 rgba(7,7,33,.15);
+}
+
+form button {
+	color: rgb(255, 255, 255);
+  background-color: rgb(0, 92, 160);
+	padding: .5rem 1rem .7rem 1rem;
+	box-shadow: inset 0 -.125rem 0 rgba(0, 0, 0, .4);
+	margin-top: 1rem;
+}
+
+form button::after {
+	content: ">";
+	margin-left: 1rem;
+	font-weight: 700;
 }
 
 fieldset {
 	border: none;
+	background-color: var(--ns-yellow);
+	padding: 2rem;
 }
 
 legend {
-	font-size: 2rem;
+	font-size: 1.5rem;
+	position: relative;
+	top: 2rem;
+	color: var(--ns-blue);
+	margin-bottom: 2rem;
+	font-weight: 400;
 }
 
 label {
 	display: block;
+	background: none;
+	padding: 0;
+	font-weight: 100;
+	margin-bottom: .5rem;
+}
+
+input {
+	border: none;
+	width: 100%;
+	padding: .5rem;
+}
+
+input:not(:focus):not(:placeholder-shown):invalid {
+	color: red;
+}
+
+input:not(:focus):not(:placeholder-shown):invalid + label::before {
+	color: rgb(219, 0, 41);
+	content: "Bovenstaand veld is niet correct ingevuld!";
+	display: block;
+	padding-top: .5rem;
+	margin: -.5rem 0 1.5rem 0;
+	border-top: 2px solid rgb(219, 0, 41);
+	font-weight: 400;
+	font-size: .888rem;
+}
+
+input+label {
+	margin-top: 1rem;
 }
 
 label+label,
 button {
 	margin-top: .25rem;
+}
+
+@media (min-width: 50rem) {
+	body {
+		padding: 0 10vw;
+	}
+}
+
+@media (min-width: 80rem) {
+	body {
+		padding: 0 30vw;
+	}
 }
