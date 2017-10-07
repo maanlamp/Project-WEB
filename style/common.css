@@ -18,31 +18,17 @@
 
 button,
 input,
-header a {
+body>header a {
 	transition: transform .1s ease-out;
 }
 
 button:active,
 input:active,
-header a:active {
+body>header a:active {
 	transform: scale(.9);
 }
 
-header button:active::before,
-header input:active::before {
-	content: "";
-	display: inline-block;
-	position: fixed;
-	background-color: var(--ns-blue);
-	opacity: .2;
-	width: 4rem;
-	height: 4rem;
-	left: -.5rem;
-	top: -.5rem;
-	border-radius: 50%;
-	z-index: 2;
-	animation: tapRipple .2s ease-out forwards;
-}
+
 
 h1 {
 	cursor: default;
@@ -92,26 +78,6 @@ a {
 
 ul {
 	list-style: none;
-}
-
-header {
-	background-color: white;
-	color: var(--ns-blue);
-	z-index: 1;
-}
-
-header>a>img {
-	width: 2rem;
-	margin: 1rem;
-}
-
-header nav * {
-	font-weight: 400;
-}
-
-header nav img {
-	width: 2rem;
-	height: 2rem;
 }
 
 @keyframes tapRipple {

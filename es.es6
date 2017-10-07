@@ -121,3 +121,16 @@ document.querySelector("aside>form>button").addEventListener("click", function (
 });
 
 Main.sort("timesRead", true);
+
+//opgeslagen lijst
+let prullenbakkies = document.querySelectorAll("article button");
+if (prullenbakkies) {
+	prullenbakkies.forEach((prullenbak)=> {
+		prullenbak.addEventListener("click", function () {
+			Main.popOut(this.parentNode.parentNode, 0);
+			setTimeout(() => {
+				this.parentNode.parentNode.remove();
+			}, 300);
+		});
+	});
+}
