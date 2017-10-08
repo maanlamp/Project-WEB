@@ -125,7 +125,7 @@ Main.sort("timesRead", true);
 //opgeslagen lijst
 let prullenbakkies = document.querySelectorAll("article button");
 if (prullenbakkies) {
-	prullenbakkies.forEach((prullenbak)=> {
+	prullenbakkies.forEach((prullenbak) => {
 		prullenbak.addEventListener("click", function () {
 			Main.popOut(this.parentNode.parentNode, 0);
 			setTimeout(() => {
