@@ -28,8 +28,6 @@ body>header a:active {
 	transform: scale(.9);
 }
 
-
-
 h1 {
 	cursor: default;
 }
@@ -78,6 +76,28 @@ a {
 
 ul {
 	list-style: none;
+}
+
+article header {
+	display: flex;
+	justify-content: space-between;
+}
+
+article footer {
+	margin-bottom: .5rem;
+}
+
+article footer * {
+	display: inline-block;
+}
+
+article footer li:last-of-type::before {
+	content: "·";
+	margin-right: .4rem;
+}
+
+article footer li:last-of-type {
+	font-style: italic;
 }
 
 @keyframes tapRipple {

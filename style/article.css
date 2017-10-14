@@ -1,0 +1,59 @@
+article {
+	overflow: hidden;
+	box-shadow: 0 0.125rem 0 0 rgba(7,7,33,.15);
+	background-color: white;
+	padding: 1rem;
+	cursor: pointer;
+	margin: .25rem;
+}
+
+article a {
+	color: var(--ns-linkBlue);
+	transition: all .1s ease-out;
+	display: inline-block;
+	margin-top: 1rem;
+	background: url(../Images/icon_arrowRight.png) no-repeat left center;
+	background-size: .5rem;
+	padding-left: 1rem;
+}
+
+article:hover a,
+article a:focus {
+	color: var(--ns-blue);
+	padding-left: 1.5rem;
+}
+
+article button {
+	width: 3rem;
+	background: none;
+	box-shadow: none;
+	padding: 1rem 1rem .7rem 1rem;
+	border-radius: 50%;
+	transition: background-color .1s ease-out;
+	z-index: 2;
+}
+
+article button:hover,
+article button:focus {
+	box-shadow: none;
+	background-color: rgba(0, 48, 130, .1);
+}
+
+article button img {
+	width: 100%;
+}
+
+article a::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.0);
+    z-index: 1;
+}
+
+article {
+	position: relative;
+}

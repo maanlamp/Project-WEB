@@ -1,10 +1,5 @@
-article header {
-	display: flex;
-	justify-content: space-between;
-}
-
-article button,
-article button:focus {
+article header button,
+article header button:focus {
 	background: none;
 	box-shadow: none;
 	padding: 1.5rem 1.5rem 1.3rem 1.3rem;
@@ -16,24 +11,24 @@ article button:focus {
 	left: 12px;
 }
 
-article button:hover {
+article header button:hover {
 	background-color: rgba(0, 48, 130, .1);
 }
 
-article button:hover img:first-of-type {
+article header button:hover img:first-of-type {
 	transform: translate(-5px, -26px) rotate(-25deg);
 }
 
-article button img:first-of-type {
+article header button img:first-of-type {
 	transform: translateY(-21px);
 	transition: all .1s ease-out;
 }
 
-article button img:not(:first-of-type) {
+article header button img:not(:first-of-type) {
 	transform: translateY(8px);
 	margin-left: -35px;
 }
 
-article button:hover {
+article header button:hover {
 	box-shadow: none;
 }
