@@ -3,6 +3,7 @@
 import _Main from "./Main.js";
 import {addArticles, deleteArticles} from "./Articles.js";
 const Main = new _Main();
+window.Main = Main;
 
 if (document.querySelectorAll("article:first-of-type button img").length > 1) {
 	deleteArticles();
