@@ -1,0 +1,40 @@
+aside ul {
+	position: absolute;
+	left: 0;
+	top: 8.2vh;
+	width: 100vw;
+	height: 91.8vh;
+	background-color: white;
+	display: flex;
+	padding: 0 3rem;
+}
+
+aside ul li {
+	display: inline-block;
+}
+
+aside form ul li:last-of-type {
+	background: url("../images/toevoegen.png") no-repeat right 1rem center;
+	background-size: 1.5rem;
+	width: 100%;
+}
+
+@media (min-width: 60rem) {
+	aside ul li {
+		width: calc(33% - .324rem);
+		margin: 0;
+	}
+}
+
+@media (max-width: 60rem) {
+	aside ul li {
+		width: calc(50% - .5rem);
+		margin: 0;
+	}
+}
+
+@media (max-width: 40rem) {
+	aside ul li {
+		width: calc(100% - 1rem);
+	}
+}

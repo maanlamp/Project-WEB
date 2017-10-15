@@ -36,28 +36,28 @@ body>header button:focus {
 	box-shadow: none;
 }
 
-form li:not(:first-of-type),
+form li,
 body>header>form li {
 	display: inline-block;
 	box-shadow: 0 -.125rem 0 rgba(7, 7, 33, .1) inset;
-	padding: 1rem 2rem 1rem 0;
-	background: url("../Images/icon_arrowDown.png") no-repeat right .7rem bottom 1.6rem;
+	padding: 1rem;
+	background: url("../Images/icon_arrowDown.png") no-repeat right 1.5rem bottom 1.6rem;
 	background-size: .6rem;
 }
 
-form li:not(:first-of-type):hover,
+form li:hover,
 body>header>form li:hover {
 	cursor: pointer;
 	box-shadow: 0 -.125rem 0 var(--ns-blue) inset;
 }
 
-form li:not(:first-of-type) *,
+form li *,
 body>header>form li * {
 	display: inline-block;
 	vertical-align: middle;
 }
 
-form li:not(:first-of-type) img,
+form li img,
 body>header>form li img {
 	width: 1.5rem;
 	height: 1.5rem;
@@ -72,8 +72,8 @@ nav {
 	padding: .65rem;
 }
 
-body>header button:active::before,
-body>header input:active::before {
+body>header form>button:active::before,
+body>header form>input:active::before {
 	content: "";
 	display: inline-block;
 	position: fixed;
@@ -84,14 +84,14 @@ body>header input:active::before {
 	left: -.5rem;
 	top: -.5rem;
 	border-radius: 50%;
-	z-index: 2;
+	z-index: 99;
 	animation: tapRipple .2s ease-out forwards;
 }
 
 body>header {
 	background-color: white;
 	color: var(--ns-blue);
-	z-index: 1;
+	z-index: 98;
 }
 
 body>header>a>img {
