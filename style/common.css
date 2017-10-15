@@ -4,6 +4,7 @@
 	--ns-blue: rgba(0, 48, 130, 1);
 	--ns-lightBlue: rgba(82, 100, 205, 1);
 	--ns-linkBlue: rgba(0, 121, 211, 1);
+	--ns-grey: #e6e6e9;
 }
 
 * {

@@ -104,11 +104,12 @@ function getImage(url) {
 	});
 }
 
-let images = ["hoi.jpeg", "hoi.jpeg"];
+let images = ["important.gif", "important.gif", "important.gif", "important.gif", "important.gif", "important.gif"];
 for (let i = 0; i < images.length; i++) {
 	getImage(`../Images/backgrounds/${images[i]}`).then((img) => {
 		let oldImg = document.querySelector(`article:nth-of-type(${i + 1}) img`);
 		oldImg.parentElement.replaceChild(img, oldImg);
 		img.classList.add("resolved");
+		Main.popIn(img, i * 3);
 	});
 }

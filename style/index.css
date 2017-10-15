@@ -1,5 +1,5 @@
 body {
-	background-color: #e6e6e9;
+	background-color: var(--ns-grey);
 }
 
 main {

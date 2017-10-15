@@ -53,6 +53,7 @@ article header {
 	margin-bottom: 1rem;
 	padding: 4rem 1rem 3rem 1rem;
 	overflow: hidden;
+	background: var(--ns-yellow);
 }
 
 article>header>img {
@@ -62,17 +63,31 @@ article>header>img {
 	width: 100%;
 }
 
+article>header>img.resolved {
+	top: -50%;
+}
+
 article>header>img:not(.resolved) {
 	animation: rotate 2s infinite;
 	width: 3rem;
 	height: 3rem;
 	left: calc(50% - 1.5rem);
-	opacity: .3;
+	opacity: .1;
 	top: 4.5rem;
 }
 
 .resolved + h3 {
 	color: white;
+	text-shadow: 0 0 .3rem black;
+}
+
+.resolved + h3 + button:not(:focus):not(:hover) {
+	filter: brightness(0) invert(1);
+}
+
+.resolved + h3 + button:focus,
+.resolved + h3 + button:hover {
+	background: white;
 }
 
 article header h3 {
@@ -100,7 +115,7 @@ article header button,
 article header button:focus {
 	background: none;
 	box-shadow: none;
-	padding: 1.5rem 1.5rem 1.3rem 1.3rem;
+	padding: 1.4rem 1.3rem 1.2rem 1.3rem;
 	position: relative;
 	transform: scale(.7);
 	border-radius: 50%;
@@ -109,11 +124,13 @@ article header button:focus {
 	left: 12px;
 }
 
-article header button:hover {
+article header button:hover,
+article header button:focus {
 	background-color: rgba(0, 48, 130, .1);
 }
 
-article header button:hover img[src="images/trashlid.png"]:first-of-type {
+article header button:hover img[src="images/trashlid.png"]:first-of-type,
+article header button:focus img[src="images/trashlid.png"]:first-of-type{
 	transform: translate(-5px, -26px) rotate(-25deg);
 }
 
@@ -127,7 +144,8 @@ article header button img[src="images/trashcan.png"] {
 	margin-left: -35px;
 }
 
-article header button:hover {
+article header button:hover,
+article header button:focus {
 	box-shadow: none;
 }
 
