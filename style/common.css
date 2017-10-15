@@ -133,6 +133,20 @@ ul {
 	main article {
 		width: calc(33% - .324rem);
 	}
+	article:first-of-type p {
+		columns: 2;
+		column-gap: 3rem;
+	}
+	nav {
+		margin-right: 1rem;
+	}
+}
+
+@media (min-width: 90rem) {
+	main,
+	body>header {
+		padding: 0 15vw;
+	}
 }
 
 @media (max-width: 60rem) {
@@ -147,5 +161,8 @@ ul {
 @media (max-width: 40rem) {
 	main article {
 		width: 100%;
+	}
+	nav {
+		margin-right: 1rem;
 	}
 }

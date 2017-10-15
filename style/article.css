@@ -58,7 +58,7 @@ article>header>img {
 }
 
 article>header>img.resolved {
-	top: -50%;
+	
 }
 
 article>header>img:not(.resolved) {
@@ -70,15 +70,9 @@ article>header>img:not(.resolved) {
 	top: 4.5rem;
 }
 
-:not(.resolved) + h3 {
-	background: var(--ns-blue);
-	line-height: 2.75rem;
-	margin: -1rem 0 .5rem -1rem;
-	padding: 1rem 1.5rem;
-}
-
 .resolved + h3 {
 	text-shadow: 0 0 .3rem black;
+	color: white;
 }
 
 .resolved + h3 + button:not(:focus):not(:hover) {
@@ -92,24 +86,20 @@ article>header>img:not(.resolved) {
 
 article header h3 {
 	z-index: 1;
-	color: white;
+	color: var(--ns-blue);
 }
 
 article footer {
 	margin-bottom: .5rem;
 }
 
-article footer * {
+article footer li {
 	display: inline-block;
 }
 
-article footer li:last-of-type::before {
+article footer li+li::before {
 	content: "·";
-	margin-right: .4rem;
-}
-
-article footer li:last-of-type {
-	font-style: italic;
+	margin: 0 .5rem 0 .3rem;
 }
 
 article header button {
@@ -169,11 +159,14 @@ article button {
   }
 }
 
-/* -- Eerste verhaaltje -- */
 article:first-of-type {
 	width: 100%;
+	padding: 3rem;
 }
 
-article:first-of-type p {
-	width: 45%;
+article:first-of-type header {
+	margin: -3rem;
+	margin-bottom: 1.5rem;
+	padding-left: 3rem;
+	padding-right: 3rem;
 }

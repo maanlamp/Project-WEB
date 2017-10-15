@@ -25,14 +25,13 @@ function removeStyle() {
 
 Main.articles.forEach((article) => {
 	article.paragraph = article.querySelector("p");
-	article.length = article.paragraph.textContent.length;
 	article.words = article.paragraph.textContent.split(" ").length;
 	article.readingTime = article.words / 250; //gemiddeld 250 woorden per minuut
-	article.timesSaved = Math.floor(Math.random() * 1000);
 	article.timesRead = Math.floor(Math.random() * 1000);
 	article.dataset.timesSaved = article.timesSaved;
 	article.dataset.timesRead = article.timesRead;
 	article.dataset.readingTime = article.readingTime;
+	article.querySelector("footer li:last-of-type").innerHTML += `${Math.round(article.readingTime)} minu${Math.round(article.readingTime) <= 1 ? "ut" : "ten"}`;
 	if (article === document.querySelector("article:first-of-type")) {
 		Main.trimSnippet(article, 1000);
 	} else {
