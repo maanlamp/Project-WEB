@@ -23,7 +23,7 @@ function removeStyle() {
 	this.removeAttribute("style");
 }
 
-Main.articles().forEach((article) => {
+Main.articles.forEach((article) => {
 	article.paragraph = article.querySelector("p");
 	article.length = article.paragraph.textContent.length;
 	article.words = article.paragraph.textContent.split(" ").length;
