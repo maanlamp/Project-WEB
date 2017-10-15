@@ -104,7 +104,7 @@ function getImage(url) {
 	});
 }
 
-let images = ["important.gif", "important.gif", "important.gif", "important.gif", "important.gif", "important.gif"];
+let images = ["important.gif", "important.gif", "important.gif"];
 for (let i = 0; i < images.length; i++) {
 	getImage(`../Images/backgrounds/${images[i]}`).then((img) => {
 		let oldImg = document.querySelector(`article:nth-of-type(${i + 1}) img`);

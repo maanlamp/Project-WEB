@@ -24,12 +24,6 @@ article a:focus {
 	margin-left: .25rem;
 }
 
-article button:hover,
-article button:focus {
-	box-shadow: none;
-	background-color: rgba(0, 48, 130, .1);
-}
-
 article a::before {
 	position: absolute;
 	content: '';
@@ -76,8 +70,14 @@ article>header>img:not(.resolved) {
 	top: 4.5rem;
 }
 
+:not(.resolved) + h3 {
+	background: var(--ns-blue);
+	line-height: 2.75rem;
+	margin: -1rem 0 .5rem -1rem;
+	padding: 1rem 1.5rem;
+}
+
 .resolved + h3 {
-	color: white;
 	text-shadow: 0 0 .3rem black;
 }
 
@@ -92,6 +92,7 @@ article>header>img:not(.resolved) {
 
 article header h3 {
 	z-index: 1;
+	color: white;
 }
 
 article footer {
@@ -111,22 +112,26 @@ article footer li:last-of-type {
 	font-style: italic;
 }
 
-article header button,
-article header button:focus {
+article header button {
 	background: none;
 	box-shadow: none;
 	padding: 1.4rem 1.3rem 1.2rem 1.3rem;
 	position: relative;
 	transform: scale(.7);
 	border-radius: 50%;
-	transition: all .1s ease-out;
+	transition: all .15s ease-out;
 	top: -.65rem;
 	left: 12px;
 }
 
 article header button:hover,
 article header button:focus {
-	background-color: rgba(0, 48, 130, .1);
+	background-color: var(--ns-blue);
+}
+
+article header img:not(.resolved)+h3+button:hover img,
+article header img:not(.resolved)+h3+button:focus img {
+	filter: brightness(0) invert(1);
 }
 
 article header button:hover img[src="images/trashlid.png"]:first-of-type,
@@ -167,4 +172,8 @@ article button {
 /* -- Eerste verhaaltje -- */
 article:first-of-type {
 	width: 100%;
+}
+
+article:first-of-type p {
+	width: 45%;
 }

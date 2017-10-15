@@ -33,7 +33,7 @@ body>header button {
 
 body>header button:hover,
 body>header button:focus {
-	box-shadow: none;
+	filter: brightness(0) invert(1);
 }
 
 form li,
