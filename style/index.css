@@ -35,24 +35,3 @@ form li>button:hover {
 	color: white;
 	transform: rotate(360deg);
 }
-
-@media (min-width: 60rem) {
-	main article {
-		width: calc(33% - .324rem);
-	}
-}
-
-@media (max-width: 60rem) {
-	main article {
-		width: calc(50% - .5rem);
-	}
-	nav {
-		margin-right: 1rem;
-	}
-}
-
-@media (max-width: 40rem) {
-	main article {
-		width: 100%;
-	}
-}

@@ -78,28 +78,6 @@ ul {
 	list-style: none;
 }
 
-article header {
-	display: flex;
-	justify-content: space-between;
-}
-
-article footer {
-	margin-bottom: .5rem;
-}
-
-article footer * {
-	display: inline-block;
-}
-
-article footer li:last-of-type::before {
-	content: "·";
-	margin-right: .4rem;
-}
-
-article footer li:last-of-type {
-	font-style: italic;
-}
-
 @keyframes tapRipple {
 	0% {
 		transform: scale(0);
@@ -147,5 +125,26 @@ article footer li:last-of-type {
 		opacity: 0;
 		width: 0;
 		height: 0;
+	}
+}
+
+@media (min-width: 60rem) {
+	main article {
+		width: calc(33% - .324rem);
+	}
+}
+
+@media (max-width: 60rem) {
+	main article {
+		width: calc(50% - .5rem);
+	}
+	nav {
+		margin-right: 1rem;
+	}
+}
+
+@media (max-width: 40rem) {
+	main article {
+		width: 100%;
 	}
 }

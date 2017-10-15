@@ -1,6 +1,6 @@
 article {
 	overflow: hidden;
-	box-shadow: 0 0.125rem 0 0 rgba(7,7,33,.15);
+	box-shadow: 0 0.125rem 0 0 rgba(7, 7, 33, .15);
 	background-color: white;
 	padding: 1rem;
 	cursor: pointer;
@@ -20,17 +20,8 @@ article a {
 article:hover a,
 article a:focus {
 	color: var(--ns-blue);
-	padding-left: 1.5rem;
-}
-
-article button {
-	width: 3rem;
-	background: none;
-	box-shadow: none;
-	padding: 1rem 1rem .7rem 1rem;
-	border-radius: 50%;
-	transition: background-color .1s ease-out;
-	z-index: 2;
+	padding-left: .75rem;
+	margin-left: .25rem;
 }
 
 article button:hover,
@@ -39,21 +30,123 @@ article button:focus {
 	background-color: rgba(0, 48, 130, .1);
 }
 
-article button img {
-	width: 100%;
-}
-
 article a::before {
-    position: absolute;
-    content: '';
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    background: rgba(255, 255, 255, 0.0);
-    z-index: 1;
+	position: absolute;
+	content: '';
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background: rgba(255, 255, 255, 0.0);
+	z-index: 1;
 }
 
 article {
 	position: relative;
+}
+
+article header {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	margin: -1rem;
+	margin-bottom: 1rem;
+	padding: 4rem 1rem 3rem 1rem;
+	overflow: hidden;
+}
+
+article>header>img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+article>header>img:not(.resolved) {
+	animation: rotate 2s infinite;
+	width: 3rem;
+	height: 3rem;
+	left: calc(50% - 1.5rem);
+	opacity: .3;
+	top: 4.5rem;
+}
+
+.resolved + h3 {
+	color: white;
+}
+
+article header h3 {
+	z-index: 1;
+}
+
+article footer {
+	margin-bottom: .5rem;
+}
+
+article footer * {
+	display: inline-block;
+}
+
+article footer li:last-of-type::before {
+	content: "·";
+	margin-right: .4rem;
+}
+
+article footer li:last-of-type {
+	font-style: italic;
+}
+
+article header button,
+article header button:focus {
+	background: none;
+	box-shadow: none;
+	padding: 1.5rem 1.5rem 1.3rem 1.3rem;
+	position: relative;
+	transform: scale(.7);
+	border-radius: 50%;
+	transition: all .1s ease-out;
+	top: -.65rem;
+	left: 12px;
+}
+
+article header button:hover {
+	background-color: rgba(0, 48, 130, .1);
+}
+
+article header button:hover img[src="images/trashlid.png"]:first-of-type {
+	transform: translate(-5px, -26px) rotate(-25deg);
+}
+
+article header button img[src="images/trashlid.png"] {
+	transform: translateY(-21px);
+	transition: all .1s ease-out;
+}
+
+article header button img[src="images/trashcan.png"] {
+	transform: translateY(8px);
+	margin-left: -35px;
+}
+
+article header button:hover {
+	box-shadow: none;
+}
+
+article button {
+	transition: background-color .1s ease-out;
+	z-index: 2;
+}
+
+@keyframes rotate {
+  80% {
+  	transform: rotate(540deg);
+  }
+	
+	100% {
+  	transform: rotate(540deg);
+  }
+}
+
+/* -- Eerste verhaaltje -- */
+article:first-of-type {
+	width: 100%;
 }

@@ -32,7 +32,11 @@ Main.articles().forEach((article) => {
 	article.dataset.timesSaved = article.timesSaved;
 	article.dataset.timesRead = article.timesRead;
 	article.dataset.readingTime = article.readingTime;
-	Main.trimSnippet(article, 200);
+	if (article === document.querySelector("article:first-of-type")) {
+		Main.trimSnippet(article, 1000);
+	} else {
+		Main.trimSnippet(article, 200);
+	}
 });
 
 document.querySelectorAll("aside li>button, header li>button").forEach((button) => {
@@ -85,3 +89,26 @@ filter.addEventListener("click", function () {
 		this.parentElement.children[0].style.display = "none";
 	}
 });
+
+//article header images
+function getImage(url) {
+	return new Promise(function (resolve, reject) {
+		const img = new Image();
+		img.src = url;
+		img.addEventListener("load", function () {
+			resolve(img);
+		});
+		img.addEventListener("error", function () {
+			reject(url);
+		});
+	});
+}
+
+let images = ["hoi.jpeg", "hoi.jpeg"];
+for (let i = 0; i < images.length; i++) {
+	getImage(`../Images/backgrounds/${images[i]}`).then((img) => {
+		let oldImg = document.querySelector(`article:nth-of-type(${i + 1}) img`);
+		oldImg.parentElement.replaceChild(img, oldImg);
+		img.classList.add("resolved");
+	});
+}
