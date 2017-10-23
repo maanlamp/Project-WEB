@@ -138,10 +138,6 @@ ul {
 	main article {
 		width: calc(33% - .324rem);
 	}
-	article:first-of-type p {
-		columns: 2;
-		column-gap: 3rem;
-	}
 	nav {
 		margin-right: 1rem;
 	}

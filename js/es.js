@@ -28,16 +28,13 @@ Main.articles.forEach((article) => {
 	article.words = article.paragraph.textContent.split(" ").length;
 	article.readingTime = article.words / 250; //gemiddeld 250 woorden per minuut
 	article.timesRead = Math.floor(Math.random() * 1000);
-	article.dataset.timesSaved = article.timesSaved;
 	article.dataset.timesRead = article.timesRead;
 	article.dataset.readingTime = article.readingTime;
 	article.querySelector("footer li:last-of-type").innerHTML += `${Math.round(article.readingTime)} minu${Math.round(article.readingTime) <= 1 ? "ut" : "ten"}`;
-	if (article === document.querySelector("article:first-of-type")) {
-		Main.trimSnippet(article, 500);
-	} else {
-		Main.trimSnippet(article, 150);
-	}
 });
+
+Main.sort("timesRead", true);
+Main.fixArticles();
 
 document.querySelectorAll("aside li>button, header li>button").forEach((button) => {
 	button.addEventListener("click", deleteFilter);
@@ -108,6 +105,6 @@ for (let i = 0; i < images.length; i++) {
 		let oldImg = document.querySelector(`article:nth-of-type(${i + 1}) img`);
 		oldImg.parentElement.replaceChild(img, oldImg);
 		img.classList.add("resolved");
-		Main.popIn(img, i * 3);
+		//Main.popIn(img, i * 3);
 	});
 }
