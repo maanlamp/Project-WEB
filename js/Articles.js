@@ -15,6 +15,7 @@ export function addArticles() {
 						main = document.querySelector("main");
 			fakeArticle.querySelector("button").remove();
 			main.append(fakeArticle);
+			article.classList.add("added");
 			fakeArticle.style.position = "absolute";
 			fakeArticle.style.top = `${article.offsetTop - 4.5}px`;
 			fakeArticle.style.left = `${article.getBoundingClientRect().left - 4.5}px`;

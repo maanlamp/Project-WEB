@@ -33,9 +33,9 @@ Main.articles.forEach((article) => {
 	article.dataset.readingTime = article.readingTime;
 	article.querySelector("footer li:last-of-type").innerHTML += `${Math.round(article.readingTime)} minu${Math.round(article.readingTime) <= 1 ? "ut" : "ten"}`;
 	if (article === document.querySelector("article:first-of-type")) {
-		Main.trimSnippet(article, 1000);
+		Main.trimSnippet(article, 500);
 	} else {
-		Main.trimSnippet(article, 200);
+		Main.trimSnippet(article, 150);
 	}
 });
 
@@ -78,8 +78,6 @@ document.querySelector("aside li:first-of-type").addEventListener("click", funct
 	li.children[0].addEventListener("click", deleteFilter);
 });
 
-Main.sort("timesRead", true);
-
 //header
 const filter = document.querySelector("aside form button");
 filter.addEventListener("click", function () {
@@ -104,7 +102,7 @@ function getImage(url) {
 	});
 }
 
-let images = ["important.gif", "important.gif", "important.gif"];
+let images = ["plaatje%20(1).jpg", "plaatje%20(2).jpg", "plaatje%20(3).jpg", "plaatje%20(4).jpg", "plaatje%20(5).jpg", "plaatje%20(6).jpg"];
 for (let i = 0; i < images.length; i++) {
 	getImage(`../Images/backgrounds/${images[i]}`).then((img) => {
 		let oldImg = document.querySelector(`article:nth-of-type(${i + 1}) img`);

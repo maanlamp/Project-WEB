@@ -1,10 +1,10 @@
 /*jshint esversion:6, browser: true, devel: true*/
 
 export default class Main {
-	constructor() {
-		this.articles = document.querySelectorAll("main article");
+	get articles() {
+		return document.querySelectorAll("main article");
 	}
-	
+
 	trimSnippet(snippet, maxLength) {
 		if (snippet.length < maxLength) {
 			return;

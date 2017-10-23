@@ -39,6 +39,20 @@ article {
 	position: relative;
 }
 
+article.added::before {
+	content: "Toegevoegd!";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	font-size: 3rem;
+	background: green;
+	z-index: 3;
+	color: white;
+}
+
 article header {
 	display: flex;
 	justify-content: space-between;
@@ -50,15 +64,24 @@ article header {
 	background: var(--ns-yellow);
 }
 
+article:first-of-type header {
+	align-items: center;
+	padding: 6rem;
+}
+
+article:first-of-type h3 {
+	margin-top: -1.5rem;
+}
+
 article>header>img {
 	position: absolute;
 	left: 0;
 	top: 0;
-	width: 100%;
 }
 
 article>header>img.resolved {
-	
+	min-height: 100%;
+	min-width: 100%;
 }
 
 article>header>img:not(.resolved) {
@@ -67,7 +90,7 @@ article>header>img:not(.resolved) {
 	height: 3rem;
 	left: calc(50% - 1.5rem);
 	opacity: .1;
-	top: 4.5rem;
+	top: 4.25rem;
 }
 
 .resolved + h3 {
@@ -97,9 +120,15 @@ article footer li {
 	display: inline-block;
 }
 
-article footer li+li::before {
+article footer li:nth-of-type(2)::before {
 	content: "·";
 	margin: 0 .5rem 0 .3rem;
+}
+
+article footer li:last-of-type {
+	margin: .3rem 0;
+	display: block;
+	opacity: .33;
 }
 
 article header button {
@@ -169,4 +198,8 @@ article:first-of-type header {
 	margin-bottom: 1.5rem;
 	padding-left: 3rem;
 	padding-right: 3rem;
+}
+
+article:first-of-type header img:not(.resolved) {
+	top: 6.25rem;
 }

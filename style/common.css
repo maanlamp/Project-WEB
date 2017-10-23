@@ -17,6 +17,11 @@
 	text-rendering: optimizeLegibility;
 }
 
+main,
+body>header {
+	transition: padding .3s ease-out;
+}
+
 button,
 input,
 body>header a {
