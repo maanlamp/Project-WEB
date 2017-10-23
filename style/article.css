@@ -134,7 +134,6 @@ article header button {
 	position: relative;
 	transform: scale(.7);
 	border-radius: 50%;
-	transition: all .15s ease-out;
 	top: -.65rem;
 	left: 12px;
 }

@@ -33,7 +33,7 @@ Main.articles.forEach((article) => {
 	article.querySelector("footer li:last-of-type").innerHTML += `${Math.round(article.readingTime)} minu${Math.round(article.readingTime) <= 1 ? "ut" : "ten"}`;
 });
 
-Main.sort("timesRead", true);
+Main.sort("timesRead", true, false);
 Main.fixArticles();
 
 document.querySelectorAll("aside li>button, header li>button").forEach((button) => {

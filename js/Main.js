@@ -7,6 +7,11 @@ export default class Main {
 	
 	fixArticles() {
 		this.articles.forEach((article) => {
+			if (article.dataset.order === "0") {
+				article.classList.add("first");
+			} else {
+				article.classList.remove("first");
+			}
 			this.trimSnippet(article, 150, 500);
 		});
 	}
@@ -27,7 +32,7 @@ export default class Main {
 		}
 	}
 
-	sort(by, highestFirst) {
+	sort(by, highestFirst, animate = true) {
 		const temp = Array.prototype.slice.call(this.articles);
 		temp.sort((a, b) => {
 			if (highestFirst) {
@@ -38,19 +43,18 @@ export default class Main {
 		});
 		let pos = 0;
 		for (let i = 0; i < temp.length; i++) {
-			this.popOut(temp[i], i);
+			if (animate) {
+				this.popOut(temp[i], i);
+			}
 			temp[i].dataset.order = pos++;
 			setTimeout(() => {
-				if (temp[i].dataset.order === "0") {
-					temp[i].classList.add("first");
-				} else {
-					temp[i].classList.remove("first");
+				this.fixArticles();
+				if (animate) {
+					this.popIn(temp[i], i);
 				}
-				this.popIn(temp[i], i);
 				temp[i].style.order = temp[i].dataset.order;
-			}, this.articles.length * 100);
+			}, (this.articles.length * 100) * (animate) ? 0 : 1);
 		}
-		this.fixArticles();
 	}
 
 	filter(by, min, max) {
