@@ -37,6 +37,7 @@ export function deleteArticles() {
 				Main.popOut(this.parentNode.parentNode, 0);
 				setTimeout(() => {
 					this.parentNode.parentNode.remove();
+					Main.sort();
 				}, 300);
 			});
 		});

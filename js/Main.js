@@ -32,7 +32,7 @@ export default class Main {
 		}
 	}
 
-	sort(by, highestFirst, animate = true) {
+	sort(by = "readingTime", highestFirst = true, animate = true) {
 		const temp = Array.from(this.articles);
 		temp.sort((a, b) => {
 			if (highestFirst) {

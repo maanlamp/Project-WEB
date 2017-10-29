@@ -149,17 +149,17 @@ article header img:not(.resolved)+h3+button:focus img {
 	filter: brightness(0) invert(1);
 }
 
-article header button:hover img[src="images/trashlid.png"][data-order="0"]-of-type,
-article header button:focus img[src="images/trashlid.png"][data-order="0"]-of-type{
+article header button:hover img[src="../images/trashlid.png"],
+article header button:focus img[src="../images/trashlid.png"] {
 	transform: translate(-5px, -26px) rotate(-25deg);
 }
 
-article header button img[src="images/trashlid.png"] {
+article header button img[src="../images/trashlid.png"] {
 	transform: translateY(-21px);
 	transition: all .1s ease;
 }
 
-article header button img[src="images/trashcan.png"] {
+article header button img[src="../images/trashcan.png"] {
 	transform: translateY(8px);
 	margin-left: -35px;
 }
