@@ -5,13 +5,12 @@ export default class Main {
 		return document.querySelectorAll("main article");
 	}
 	
+	get visibleArticles() {
+		return document.querySelectorAll("main article:not(.filteredOut)");
+	}
+	
 	fixArticles() {
 		this.articles.forEach((article) => {
-			if (article.dataset.order === "0") {
-				article.classList.add("first");
-			} else {
-				article.classList.remove("first");
-			}
 			this.trimSnippet(article, 150, 500);
 		});
 	}
@@ -20,7 +19,8 @@ export default class Main {
 		if (snippet.length < maxLength) {
 			return;
 		} else {
-			const text = `${snippet.paragraph.textContent.slice(0, (snippet === document.querySelector("article.first")) ? maxLength : minLength)}&hellip;`;
+			const length = (snippet.dataset.order == 0) ? maxLength : minLength,
+						text = `${snippet.paragraph.textContent.slice(0, length)}&hellip;`;
 			if (snippet.querySelectorAll("p").length < 2) {
 				const newParagraph = document.createElement("P");
 				newParagraph.innerHTML = text;
@@ -33,7 +33,7 @@ export default class Main {
 	}
 
 	sort(by, highestFirst, animate = true) {
-		const temp = Array.prototype.slice.call(this.articles);
+		const temp = Array.from(this.articles);
 		temp.sort((a, b) => {
 			if (highestFirst) {
 				return (a[by] < b[by]) ? 1 : -1;
@@ -48,24 +48,25 @@ export default class Main {
 			}
 			temp[i].dataset.order = pos++;
 			setTimeout(() => {
-				this.fixArticles();
 				if (animate) {
 					this.popIn(temp[i], i);
 				}
 				temp[i].style.order = temp[i].dataset.order;
 			}, (this.articles.length * 100) * (animate) ? 0 : 1);
 		}
+		this.fixArticles();
 	}
 
 	filter(by, min, max) {
 		for (let i = 0; i < this.articles.length; i++) {
 			let article = this.articles[i];
 			this.popOut(article, i);
-			if (article.dataset[by] >= min && article.dataset[by] <= max) {
-				this.popIn(article, i);
+			if (article.dataset[by] <= min || article.dataset[by] >= max) {
+				article.classList.add("filteredOut");
+			} else {
+				article.classList.remove("filteredOut")
 			}
 		}
-		this.fixArticles();
 	}
 
 	popOut(thing, delay) {

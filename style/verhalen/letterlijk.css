@@ -1,0 +1,45 @@
+main {
+	margin-bottom: 10rem;
+}
+
+main h1 {
+	font-size: 50vw;
+	text-align: center;
+	line-height: 40vw;
+	font-weight: 900;
+	text-transform: uppercase;
+	margin-bottom: 5vw;
+	word-wrap: break-word;
+	letter-spacing: -1.5rem;
+}
+
+main p {
+	line-height: 2rem;
+	padding:  0 32vw;
+}
+
+main p+p {
+	margin-top: 3rem;
+}
+
+main span.letterlijk {
+	font-size: 1.5rem;
+	line-height: inherit;
+	transform: skewY(2deg);
+	display: inline-block;
+	text-decoration: underline;
+	font-weight: 900;
+	letter-spacing: 1px;
+}
+
+@media (max-width: 70rem) {
+	main p {
+		padding: 0 25vw;
+	}
+}
+
+@media (max-width: 40rem) {
+	main p {
+		padding: 0 5vw;
+	}
+}

@@ -9,37 +9,20 @@
 	<link rel="stylesheet" href="style/index.css">
 	<link rel="stylesheet" href="style/filter.css">
 	<link rel="stylesheet" href="style/article.css">
-	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-	<title>Overzicht</title>
+	<title>NS Reisverhalen - Overzicht</title>
 </head>
 
 <body>
 	<header>
 		<a href="/">
 			<img src="Images/logo.png" alt="Logo">
+			<h1>NS Reisverhalen</h1>
 		</a>
-		<h1>Verhaaltjessite</h1>
-		<form action="/">
-			<ul>
-				<li>
-					<img src="Images/icon_hourglass.png" alt="Filter: Leesduur">
-					<h2>Leesduur:</h2>
-					<span>5-10m</span>
-				</li>
-			</ul>
-			<button>Sorteren aanpassen</button>
-		</form>
-		<aside>
-			<form action="/">
-				<ul>
-					<li>
-						<h2>Filter toevoegen</h2>
-					</li>
-				</ul>
-				<button>Filter(s) toevoegen</button>
-			</form>
-		</aside>
 		<nav>
+			<label>
+				<input type="text" required/>
+				<span>Zoeken</span>
+			</label>
 			<a href="aanmelden.html">
 				<img src="Images/profiel.png" alt="Mijn profiel">
 				<span>Mijn profiel</span>
@@ -47,6 +30,70 @@
 		</nav>
 	</header>
 	<main>
+		<form action="/">
+			<fieldset>
+				<legend>Artikelen sorteren op</legend>
+				<input id="sortTime" type="radio" name="sorteren" value="readingTime" checked><label for="sortTime">Leesduur</label><input id="sortPop" type="radio" name="sorteren" value="timesRead"><label for="sortPop">Populariteit</label><button title="Sorteervolgorde omdraaien">Sorteervolgorde</button>
+			</fieldset>
+			<fieldset>
+				<legend>🕐 Leesduur</legend>
+				<input id="filterShort" type="checkbox" name="filteren" value="0" checked><label for="filterShort">Kort</label><input id="filterMed" type="checkbox" name="filteren" value="2" checked><label for="filterMed">Gemiddeld</label><input id="filterLong" type="checkbox" name="filteren" value="5" checked><label for="filterLong">Lang</label>
+			</fieldset>
+		</form>
+		<article>
+			<header>
+				<img src="Images/loader.png" alt="Image thumbnail">
+				<h3>Hardboiled</h3>
+				<button>
+					<img src="images/toevoegen.png" alt="Prullenbak">
+				</button>
+			</header>
+			<footer>
+				<ul>
+					<li>Door Molovich</li>
+					<li>7 reacties</li>
+					<li>🕐 </li>
+				</ul>
+			</footer>
+			<p>Het is snikheet in die godverdomde bus. Stinkend zweet vermengd met de geur van klamme jassen en natte hond. Mijn zoon slaapt. Goddank. Een hardnekkige kater bonkt tegen mijn slapen. Flashback naar de avond ervoor. Een fles goedkope whiskey en oude kaaskoekjes. Ik stap uit. Centraal Station, de anus van Amsterdam. Pneumatisch geboor trilt zich een weg naar mijn buis van Eustachius. De koppijn verergert. Bouwputten. Overal bouwputten. Amsterdam is één grote, gapende open wond hier. Heiende heipalen beuken gezellig mee op het ritme van mijn kloppende kater. Ik ben al een miezerige week op zoek naar Stijloefeningen van die godverdomde klootzak van een Raymond ‘De Aal’ Queneau. Het miezert zachtjes. Ik trek m’n kop in m’n kraag en balanceer over de natte planken langs de bouwputten. De bibliotheek. Dit gebouw herbergt nogal wat lijken. Ik weet van minstens twee kickboxers en een mislukte bruiloftszanger dat ze hier zijn ingemetseld. Ik kijk naar boven. Reik in mijn jaszak. Draai de dop van m’n zakflacon en neem een goede slok om mezelf moed in te drinken. En dan, een stem… zoeter dan de zoetste honing. Ze verontschuldigt zich. Ik kijk om. Een godin met ravenzwarte krullen. In gebroken Engels vraagt ze waar het postkantoor is. Ach, meisje toch, je moest eens weten. Vraag het niet aan mij. Zoek iemand anders. Ik snuif haar geur op, bijna niet meer waarneembaar dankzij de wind. Het postkantoor is weggevaagd. Ik zeg dat ze in de Raadhuisstraat moet zijn. Een auto met een Frans nummerbord rijdt achteruit. De Godin Met De Zwarte Krullen kijkt om. Lichte paniek. Ik glimlach. Zij glimlacht. Droevig. Het moment bevriest. Duizend uren lang. Zij breekt eruit. Als een kuiken uit het ei. En rent achter de auto aan. Vaarwel. Binnen. Tweede verdieping. Bij de boeken van Queneau. Ze staan rustig naast elkaar. Maar Stijloefeningen is nergens te bekennen. Queneau waar ben je? Hufter. Ik kijk voor de zekerheid bij de P en de R. Maar niks. Godverdomme niks. De laffe chien is ’m gepeerd. Met de staart tussen de benen. Ik tik het in op de computer. ‘Stijloefeningen, Raymond Queneau’. ‘Minstens één exemplaar aanwezig,’ zegt de computer. Ik kijk nogmaals. Niks. Ik haal er een medewerker bij. De lijer kijkt mee. Ziet niks. Haalt z’n schouders op. Ik kan het rambam krijgen. En anders moet ik even een mailtje sturen naar het magazijn. Daar moeten ze nog een exemplaar hebben. Ik mail naar het magazijn. Beleefd. Afstandelijk. Professioneel. Ik wacht. Kwartier later. Mail terug. Er is nog één exemplaar aanwezig. Op de tweede verdieping. Tussen de andere romans. Er knapt iets in me.</p>
+			<a href="/html/verhalen/hardboiled.html">Bekijk het hele verhaal</a>
+		</article>
+		<article>
+			<header>
+				<img src="Images/loader.png" alt="Image thumbnail">
+				<h3>Letterlijk</h3>
+				<button>
+					<img src="images/toevoegen.png" alt="Prullenbak">
+				</button>
+			</header>
+			<footer>
+				<ul>
+					<li>Door Molovich</li>
+					<li>7 reacties</li>
+					<li>🕐 </li>
+				</ul>
+			</footer>
+			<p>Rond 12.00 uur stap ik uit de bus, die er letterlijk acht uur over heeft gedaan. Op het plein van Amsterdam Centraal. De regen geselt letterlijk mijn gezicht. Ik duw het wagentje voort waarin mijn zoontje ligt te slapen. De mensen die langs lopen, gedachteloos, ik zou ze letterlijk kapot kunnen slaan. Maar dat doe ik niet. Ik ben een beschaafde jongeman. Figuurlijk gesproken. Voor de bibliotheek word ik letterlijk staande gehouden door een vrouw. Ze heeft helblauwe ogen, en houtskoolzwart haar. Ze praat Engels met een Frans accent. Of dit het postkantoor is. In m’n beste Frans antwoord ik: ‘Je naisse quoi, maar als dit het postkantoor is, dan ben ik brilsmurf. Letterlijk.’ De vrouw luistert amper. Ze kijkt achter zich naar een auto die zich letterlijk met 12.000 kilometer per uur, achteruit rijdend uit de voeten maakt. Alsof de man achter het stuur op de vlucht is voor een kudde olifanten. Binnen sta ik bij de Q. Ik bekijk letterlijk elke kaft die ik tegenkom, maar Stijloefeningen is nergens te vinden. Ik raadpleeg de online catalogus. Daar staat dat Stijloefeningen wel degelijk aanwezig is! Mijn klomp breekt. Letterlijk. Ik besluit om nog één keer goed te kijken, maar dan nu met een medewerker. Wij kijken en zien niets. (Figuurlijk dan, we zien uiteraard wel andere boeken, we zijn niet blind.) De medewerker raadt aan om het magazijn even te mailen. Daar hebben ze vast nog wel een exemplaar. Die hebben letterlijk alles. Ik mail naar het magazijn. Een kleine vijftien uur later krijg ik bericht. ‘Stijloefeningen van Queneau ligt op de daartoe aangewezen plek op de tweede verdieping bij de Q.’ Er knapt iets in me. Letterlijk. Op het Bos en Lommerplein stap ik een babywinkel in om babyschoentjes te kopen voor mijn zoontje.</p>
+			<a href="/html/verhalen/letterlijk.html">Bekijk het hele verhaal</a>
+		</article>
+		<article>
+			<header>
+				<img src="Images/loader.png" alt="Image thumbnail">
+				<h3>Harry Mulisch</h3>
+				<button>
+					<img src="images/toevoegen.png" alt="Prullenbak">
+				</button>
+			</header>
+			<footer>
+				<ul>
+					<li>Door Molovich</li>
+					<li>7 reacties</li>
+					<li>🕐 </li>
+				</ul>
+			</footer>
+			<p>Om exact 12 uur Nederlandse tijd stap ik op het Centraal Stationsplein uit bus 21 (12 plus 21 is 33, de leeftijd dat Jezus werd gekruisigd. Voor mij ligt Mijn Zoon in zijn wagentje te slapen. Zonder zonden.) Zoals u weet ben ik zelf nog niet zo lang geleden gestorven, en toch loop ik hier. Het wonder van de literatuur. De mensen wijken uiteen terwijl ik over het plein loop. Rondom het plein wordt er druk gebouwd. Het regent en het waait. Ik ben op weg naar de Openbare Bibliotheek Amsterdam om Stijloefeningen van Raymond Queneau te lenen. Het boek is al een tijd op zoek naar mij, maar heeft me tot dusver niet kunnen vinden. Als het boek niet naar Harry Mulisch komt, dan is Harry Mulisch niet te beroerd om naar het boek te komen. Voor de bibliotheek vraagt een vrouw mij om mijn raad. Haar zwarte krullen kronkelen als Medusa’s slangen op haar hoofd. Ze verontschuldigt zich in het Engels, ze heeft een Frans accent. Ze vraagt of dit het postkantoor is. ‘Dat doet er niet toe,’ antwoord ik. Ze vraagt waar ze dan moet zijn. ‘U bent waar u moet zijn,’ antwoord ik. De mensen zouden moeten leren het leven te accepteren zoals het zich aandient, dat zou heel wat schelen. Ze draait zich om en rent achter een auto aan van het merk Renault. De man in de auto ziet haar niet. Orpheus mag niet omkijken terwijl Eurydice hem volgt, het schimmenrijk uit. Ik daarentegen betreed het schimmenrijk en begeef me naar de Q. Alle boeken van Queneau zijn aanwezig, behalve Stijloefeningen. Volgens de computer is Stijloefeningen wel aanwezig. Een medewerker kijkt met mij mee. Maar geen Stijloefeningen. Hij zegt dat ik een mail moet sturen naar het magazijn, daar hebben ze nog wel een exemplaar. Een kwartier later krijg ik een mail terug. Het boek ligt op de tweede verdieping, waar ik mij momenteel bevind. Het boek is dus wel degelijk aanwezig en tegelijkertijd niet. Op het Bos en Lommerplein koop ik een paar schoenen voor mijn zoon. Precies de schoenen die hij nodig had.</p>
+			<a href="/html/verhalen/harryMulisch.html">Bekijk het hele verhaal</a>
+		</article>
 		<article>
 			<header>
 				<img src="Images/loader.png" alt="Image thumbnail">

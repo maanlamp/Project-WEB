@@ -1,0 +1,45 @@
+@font-face {
+	font-family: problematicPiercer;
+	src: url(../../fonts/harryMulisch/Problematic%20Piercer.ttf);
+}
+
+main {
+	color: white;
+	padding: 5rem 30vw;
+	background: url(../../Images/backgrounds/harry%20mulisch) repeat center center;
+	background-size: contain;
+}
+
+main h1 {
+	text-align: center;
+	font-size: 5rem;
+	margin-bottom: 5rem;
+}
+
+main p {
+	font-size: 2rem;
+}
+
+main p+p {
+	margin-top: 3rem;
+}
+
+main span {
+	display: inline-block;
+	transition: all 5s linear;
+}
+
+main span.interpunctie {
+	font-size: 3rem;
+	line-height: 1rem;
+	margin-right: .3rem;
+}
+
+main span.spatie {
+	margin: 0 .3rem;
+}
+
+main h1,
+main span:not(.interpunctie) {
+	font-family: problematicPiercer;
+}

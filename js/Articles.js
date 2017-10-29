@@ -20,9 +20,11 @@ export function addArticles() {
 			fakeArticle.style.top = `${article.offsetTop - 4.5}px`;
 			fakeArticle.style.left = `${article.getBoundingClientRect().left - 4.5}px`;
 			fakeArticle.style.zIndex = "99";
-			fakeArticle.style.transition = "all 3s ease-out";
+			fakeArticle.style.transition = "all .6s ease-out";
+			fakeArticle.style.opacity = 0;
 			fakeArticle.style.transformOrigin = "0px 0px";
 			fakeArticle.style.transform = `translate(${window.innerWidth - article.getBoundingClientRect().right}px, -${article.getBoundingClientRect().top}px) scale(.2)`;
+			fakeArticle.addEventListener("transitionend", deleteSelf);
 		});
 	});
 }

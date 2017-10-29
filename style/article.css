@@ -5,12 +5,12 @@ article {
 	padding: 1rem;
 	cursor: pointer;
 	margin: .25rem;
-	transition: all .2s ease-out;
+	transition: all .2s ease;
 }
 
 article a {
 	color: var(--ns-linkBlue);
-	transition: all .1s ease-out;
+	transition: all .1s ease;
 	display: inline-block;
 	margin-top: 1rem;
 	background: url(../Images/icon_arrowRight.png) no-repeat left center;
@@ -73,7 +73,7 @@ article>header>img {
 
 article>header>img.resolved {
 	min-height: 100%;
-	min-width: 100%;
+	width: 100%;
 }
 
 article>header>img:not(.resolved) {
@@ -102,6 +102,7 @@ article>header>img:not(.resolved) {
 article header h3 {
 	z-index: 1;
 	color: var(--ns-blue);
+	white-space: nowrap;
 }
 
 article p:last-of-type {
@@ -148,14 +149,14 @@ article header img:not(.resolved)+h3+button:focus img {
 	filter: brightness(0) invert(1);
 }
 
-article header button:hover img[src="images/trashlid.png"]:first-of-type,
-article header button:focus img[src="images/trashlid.png"]:first-of-type{
+article header button:hover img[src="images/trashlid.png"][data-order="0"]-of-type,
+article header button:focus img[src="images/trashlid.png"][data-order="0"]-of-type{
 	transform: translate(-5px, -26px) rotate(-25deg);
 }
 
 article header button img[src="images/trashlid.png"] {
 	transform: translateY(-21px);
-	transition: all .1s ease-out;
+	transition: all .1s ease;
 }
 
 article header button img[src="images/trashcan.png"] {
@@ -169,7 +170,7 @@ article header button:focus {
 }
 
 article button {
-	transition: background-color .1s ease-out;
+	transition: background-color .1s ease;
 	z-index: 2;
 }
 
@@ -183,34 +184,44 @@ article button {
   }
 }
 
-article.first {
+main article[data-order="0"] {
 	width: 100%;
 	padding: 3rem;
 }
 
-article.first header {
+article[data-order="0"] header {
 	margin: -3rem;
 	margin-bottom: 1.5rem;
 	padding-left: 3rem;
 	padding-right: 3rem;
 }
 
-article.first header img:not(.resolved) {
+article[data-order="0"] header img:not(.resolved) {
 	top: 6.25rem;
 }
 
-article.first header {
+article[data-order="0"] header {
 	align-items: center;
 	padding: 6rem;
 }
 
-article.first h3 {
+article[data-order="0"] h3 {
 	margin-top: -1.5rem;
 }
 
+article.filteredOut {
+	display: none;
+}
+
 @media (min-width: 60rem) {
-	article.first p {
+	article[data-order="0"] p {
 		columns: 2;
 		column-gap: 3rem;
+	}
+}
+
+@media (max-width: 60rem) {
+	main article[data-order="0"] header {
+		padding: 6rem 3rem;
 	}
 }

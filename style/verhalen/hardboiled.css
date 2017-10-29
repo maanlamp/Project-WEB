@@ -1,0 +1,69 @@
+@font-face {
+	font-family: amsterdam;
+	src: url(../../fonts/hardboiled/amsterdam.ttf);
+}
+
+@font-face {
+	font-family: adrip1;
+	src: url(../../fonts/hardboiled/adrip1.ttf);
+}
+
+@font-face {
+	font-family: freshmarker;
+	src: url(../../fonts/hardboiled/freshmarker.ttf);
+}
+
+@font-face {
+	font-family: Painterz;
+	src: url(../../fonts/hardboiled/Painterz.ttf);
+}
+
+main img[src*="Foliage"] {
+	width: calc(100vw - 1rem);
+	margin-bottom: -1rem;
+	z-index: -1;
+}
+
+main h1 {
+	font-size: 6rem;
+	text-align: center;
+	padding: 6rem 0;
+	background: url(../../Images/backgrounds/hardboiledBrickPlaster.png) no-repeat center center;
+	background-size: 50vw 15rem;
+}
+
+main p {
+	margin: 0 10vw;
+	padding: 5vh 15vw;
+	font-size: 1.7vw;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	line-height: calc(.3rem + 4.5vh);
+	background: url(../../Images/backgrounds/hardboiledBrickPlaster.png) repeat center center;
+	background-size: 110% 200%;
+}
+
+main span+span {
+	margin-left: .5rem;
+}
+
+body {
+	background: url(../../Images/backgrounds/hardboiled) repeat center center;
+	background-size: contain;
+}
+
+@media (max-width: 60rem) {
+	main p {
+		line-height: 2.4rem;
+	}
+	
+	main span {
+		font-size: 3vw; !important;
+	}
+	
+	main>img {
+		width: 125vw;
+		left: -12.6vw;
+	}
+}

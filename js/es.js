@@ -24,6 +24,7 @@ function removeStyle() {
 }
 
 Main.articles.forEach((article) => {
+	article.dataset.title = article.querySelector("h3").textContent.replace(" ", "%20").toLowerCase();
 	article.paragraph = article.querySelector("p");
 	article.words = article.paragraph.textContent.split(" ").length;
 	article.readingTime = article.words / 250; //gemiddeld 250 woorden per minuut
@@ -33,56 +34,46 @@ Main.articles.forEach((article) => {
 	article.querySelector("footer li:last-of-type").innerHTML += `${Math.round(article.readingTime)} minu${Math.round(article.readingTime) <= 1 ? "ut" : "ten"}`;
 });
 
-Main.sort("timesRead", true, false);
-Main.fixArticles();
+//sorteren met knoppies
+const sortOrderButton = document.querySelector("main>form button"),
+			sortButtons = document.querySelectorAll("main>form fieldset:first-of-type input"),
+			filterButtons = document.querySelectorAll("main>form fieldset:last-of-type input");
 
-document.querySelectorAll("aside li>button, header li>button").forEach((button) => {
-	button.addEventListener("click", deleteFilter);
-});
-
-document.querySelectorAll("header button").forEach((button) => {
-	button.addEventListener("click", () => {
-		event.preventDefault();
+sortOrderButton.addEventListener("click", () => {
+	event.preventDefault();
+	sortOrderButton.bottomFirst = sortOrderButton.bottomFirst ? false : true;
+	sortOrderButton.style.transform = `rotateX(${sortOrderButton.bottomFirst ? 180 : 0}deg)`;
+	sortButtons.forEach((button) => {
+		if (button.checked) {
+			Main.sort(button.value, sortOrderButton.bottomFirst);
+		}
 	});
 });
 
-document.querySelector("aside li:first-of-type").addEventListener("click", function () {
-	event.preventDefault();
-	let node = [
-		document.createElement("li"),
-		document.createElement("button"),
-		document.createElement("img"),
-		document.createElement("h2"),
-		document.createElement("span")
-	];
-
-	let li = node[0];
-
-	for (let i = 1; i < node.length; i++) {
-		li.appendChild(node[i]);
-	}
-	li.children[0].textContent = "×";
-	li.children[1].src = "Images/icon_hourglass.png";
-	li.children[1].alt = "Filter: Leesduur";
-	li.children[2].textContent = "Leesduur:";
-	li.children[3].textContent = "5-10m";
-
-	let ul = this.parentElement;
-	ul.prepend(li);
-	li.style = "animation: popIn .3s ease-out forwards;";
-
-	li.addEventListener("animationend", removeStyle);
-	li.children[0].addEventListener("click", deleteFilter);
+sortButtons.forEach((input) => {
+	input.addEventListener("change", ()=> {
+		Main.sort(input.value, sortOrderButton.bottomFirst);
+	});
 });
 
-//header
-const filter = document.querySelector("aside form button");
-filter.addEventListener("click", function () {
-	if (this.parentElement.children[0].style.display === "" || this.parentElement.children[0].style.display === "none") {
-		this.parentElement.children[0].style.display = "inline-block";
-	} else {
-		this.parentElement.children[0].style.display = "none";
-	}
+//Filteren met knoppies
+filterButtons.forEach((input) => {
+	input.addEventListener("change", ()=> {
+		let minValue = 9999,
+				maxValue = 0;
+		filterButtons.forEach((button) => {
+			if (button.checked) {
+				minValue = (button.value < minValue) ? button.value : minValue;
+				maxValue = (button.value > maxValue) ? button.value : maxValue;
+			}
+		});
+		Main.filter("readingTime", minValue, maxValue);
+		sortButtons.forEach((button) => {
+			if (button.checked) {
+				Main.sort(button.value, sortOrderButton.bottomFirst);
+			}
+		});
+	});
 });
 
 //article header images
@@ -90,21 +81,22 @@ function getImage(url) {
 	return new Promise(function (resolve, reject) {
 		const img = new Image();
 		img.src = url;
-		img.addEventListener("load", function () {
+		img.addEventListener("load", () => {
 			resolve(img);
 		});
-		img.addEventListener("error", function () {
+		img.addEventListener("error", () => {
 			reject(url);
 		});
 	});
 }
 
-let images = ["plaatje%20(1).jpg", "plaatje%20(2).jpg", "plaatje%20(3).jpg", "plaatje%20(4).jpg", "plaatje%20(5).jpg", "plaatje%20(6).jpg"];
-for (let i = 0; i < images.length; i++) {
-	getImage(`../Images/backgrounds/${images[i]}`).then((img) => {
-		let oldImg = document.querySelector(`article:nth-of-type(${i + 1}) img`);
+Main.articles.forEach((article) => {
+	getImage(`../Images/backgrounds/${article.dataset.title}`).then((img) => {
+		let oldImg = article.querySelector("header img");
 		oldImg.parentElement.replaceChild(img, oldImg);
 		img.classList.add("resolved");
-		//Main.popIn(img, i * 3);
 	});
-}
+});
+
+//Graag meteen sorteren aub ok dankjewel joeee
+Main.sort("timesRead", true, false);

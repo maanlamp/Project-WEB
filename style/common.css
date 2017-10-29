@@ -17,7 +17,7 @@
 	text-rendering: optimizeLegibility;
 }
 
-main,
+main:not(.uncommon),
 body>header {
 	transition: padding .3s ease-out;
 }
@@ -84,6 +84,10 @@ ul {
 	list-style: none;
 }
 
+main:not(.uncommon) {
+	margin-bottom: 3rem;
+}
+
 @keyframes tapRipple {
 	0% {
 		transform: scale(0);
@@ -135,7 +139,7 @@ ul {
 }
 
 @media (min-width: 60rem) {
-	main article {
+	main:not(.uncommon) article {
 		width: calc(33% - .324rem);
 	}
 	nav {
@@ -144,14 +148,14 @@ ul {
 }
 
 @media (min-width: 90rem) {
-	main,
+	main:not(.uncommon),
 	body>header {
 		padding: 0 15vw;
 	}
 }
 
 @media (max-width: 60rem) {
-	main article {
+	main:not(.uncommon) article {
 		width: calc(50% - .5rem);
 	}
 	nav {
@@ -160,7 +164,7 @@ ul {
 }
 
 @media (max-width: 40rem) {
-	main article {
+	main:not(.uncommon) article {
 		width: 100%;
 	}
 	nav {
