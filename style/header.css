@@ -64,7 +64,8 @@ body>header h1 {
 }
 
 @media (max-width: 50rem) {
-	body>header h1 {
+	body>header h1,
+	body>header span {
 		display: none;
 	}
 	body>header {
