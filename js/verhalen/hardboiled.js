@@ -1,27 +1,24 @@
-const paragraphs = document.querySelectorAll("main p"),
-			title = document.querySelector("main h1"),
-			fonts = ["adrip1", "amsterdam", "freshmarker", "Painterz"],
-			colours = ["CE1800", "62A560", "4425A3", "3F67A3"];
+const fonts = ["Painterz", "freshmarker", "adrip1", "amsterdam"];
 
-function stylise(element, randomInt) {
-	const font = fonts[randomInt],
-				colour = colours[randomInt];
-	element.style.fontFamily = font;
-	element.style.color = `#${colour}`;
-	element.style.textShadow = `0 0 2px #${colour}`;
+function isOnscreen(item) {
+	let rect = item.getBoundingClientRect();
+	return (rect.top > 0 && rect.bottom < window.innerHeight);
 }
 
-paragraphs.forEach((p) => {
-	const wordArray = p.textContent.split(" ");
-	p.innerHTML = "";
-	wordArray.forEach((word) => {
-		const span = document.createElement("SPAN"),
-					randomInt = Math.floor(Math.random() * fonts.length);
-		span.textContent = word;
-		p.appendChild(span);
-		span.style.fontSize = `calc(1.3rem  + ${randomInt / 3}vw)`;
-		stylise(span, randomInt);
+window.addEventListener("scroll", () => {
+	document.querySelectorAll("span.scheldwoord").forEach(item => {
+		if (isOnscreen(item)) {
+			let rand = Math.random()*20;
+			if (!item.dataset.animated) {
+				item.style.transform = `skewX(-${Math.random()*20}deg) rotate(${rand}deg) translateX(0px)`;
+				item.style.marginBottom = `${rand / Math.PI}rem`;
+				item.style.fontFamily = `${fonts[Math.floor(Math.random() * fonts.length)]}`;
+				document.querySelector("main img").style.transform = "rotate(-90deg)";
+				setTimeout(() => {
+					document.querySelector("main img").style.transform = "rotate(0deg)";
+				}, 100);
+				item.dataset.animated = true;
+			}
+		}
 	});
 });
-
-stylise(title, Math.floor(Math.random() * 4));

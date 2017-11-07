@@ -1,4 +1,9 @@
 @font-face {
+	font-family: powerful;
+	src: url(../../fonts/hardboiled/Powerful.ttf);
+}
+
+@font-face {
 	font-family: amsterdam;
 	src: url(../../fonts/hardboiled/amsterdam.ttf);
 }
@@ -18,18 +23,27 @@
 	src: url(../../fonts/hardboiled/Painterz.ttf);
 }
 
-main img[src*="Foliage"] {
-	width: calc(100vw - 1rem);
-	margin-bottom: -1rem;
-	z-index: -1;
+main {
+	background: url(../../Images/backgrounds/bliksemies.png) repeat;
+	color: black;
+}
+
+main img {
+	position: fixed;
+	top: 50vh;
+	z-index: 1;
+	width: 20vw;
+	transform-origin: -1rem center;
+	transition: all .3s ease;
 }
 
 main h1 {
 	font-size: 6rem;
 	text-align: center;
 	padding: 6rem 0;
-	background: url(../../Images/backgrounds/hardboiledBrickPlaster.png) no-repeat center center;
-	background-size: 50vw 15rem;
+	font-family: powerful;
+	text-transform: uppercase;
+	font-size: 9vw;
 }
 
 main p {
@@ -40,30 +54,30 @@ main p {
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	line-height: calc(.3rem + 4.5vh);
-	background: url(../../Images/backgrounds/hardboiledBrickPlaster.png) repeat center center;
-	background-size: 110% 200%;
 }
 
 main span+span {
 	margin-left: .5rem;
 }
 
-body {
-	background: url(../../Images/backgrounds/hardboiled) repeat center center;
+span.scheldwoord {
+	background: url(../../Images/backgrounds/kogel.png) no-repeat left 59%;
 	background-size: contain;
+	padding: 0 2rem;
+	transform: translateX(-100%);
+	transform-origin: left;
+	transition: all 1s ease;
+	line-height: 5rem;
+	z-index: 0;
+	display: block;
+	width: 100%;
+	font-size: 2.5rem;
+	color: white;
 }
 
 @media (max-width: 60rem) {
 	main p {
 		line-height: 2.4rem;
-	}
-	
-	main span {
-		font-size: 3vw; !important;
-	}
-	
-	main>img {
-		width: 125vw;
-		left: -12.6vw;
+		font-size: 3vw;
 	}
 }

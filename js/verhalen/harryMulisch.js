@@ -17,8 +17,8 @@ paragraphs.forEach((p) => {
 
 function displace(element) {
 	const rand = {
-		x: Math.floor(Math.random() * 5),
-		y: Math.floor(Math.random() * 5)
+		x: Math.floor(Math.random() * 20),
+		y: Math.floor(Math.random() * 20)
 	};
 	element.style.transform = `translate(${rand.x}px, ${rand.y}px)`;
 }
