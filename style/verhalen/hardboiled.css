@@ -49,11 +49,11 @@ main h1 {
 main p {
 	margin: 0 10vw;
 	padding: 5vh 15vw;
-	font-size: 1.7vw;
+	font-size: 2vw;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	line-height: calc(.3rem + 4.5vh);
+	line-height: calc(5.5rem - 4.5vh);
 }
 
 main span+span {
@@ -64,7 +64,7 @@ span.scheldwoord {
 	background: url(../../Images/backgrounds/kogel.png) no-repeat left 59%;
 	background-size: contain;
 	padding: 0 2rem;
-	transform: translateX(-100%);
+	transform: translateX(-100vw);
 	transform-origin: left;
 	transition: all 1s ease;
 	line-height: 5rem;
@@ -77,7 +77,8 @@ span.scheldwoord {
 
 @media (max-width: 60rem) {
 	main p {
-		line-height: 2.4rem;
-		font-size: 3vw;
+		font-size: calc(1rem + 1vw);
+		line-height: calc(3.5rem - 3vh);
+		padding: 5vh 0;
 	}
 }
